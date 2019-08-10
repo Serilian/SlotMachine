@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "aea092c5b944556030d8",
-    "url": "/SlotMachine/static/css/main.a6fef53c.chunk.css"
+    "revision": "905c45d28ee58bea77fe",
+    "url": "/SlotMachine/static/css/main.a71d5c54.chunk.css"
   },
   {
-    "revision": "aea092c5b944556030d8",
-    "url": "/SlotMachine/static/js/main.aea092c5.chunk.js"
+    "revision": "905c45d28ee58bea77fe",
+    "url": "/SlotMachine/static/js/main.905c45d2.chunk.js"
   },
   {
     "revision": "626f812dd9e3066df5bb",
@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/SlotMachine/static/js/runtime~main.d3771922.js"
   },
   {
-    "revision": "fded8d6365e14f5d17a4865fe0585439",
+    "revision": "38ca1457b9e9389289a713a219df6861",
     "url": "/SlotMachine/index.html"
   }
 ];
