@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScoreDisplay component renders properly 1`] = `
+"<div className=\\"score-display\\">
+  <h1>
+    Congratulations!
+  </h1>
+  <h2 className=\\"score\\">
+    Your award is: 
+    100
+  </h2>
+</div>"
+`;

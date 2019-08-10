@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given SlotMachine component renders properly 1`] = `
+"<div className=\\"slot\\">
+  <SlotsDisplay slots={{...}} rolling={false} />
+  <button onClick={[Function]} disabled={false}>
+    START GAME!
+  </button>
+  <button onClick={[Function]} disabled={true}>
+    STOP
+  </button>
+  <Memo(ScoreDisplay) score={0} />
+</div>"
+`;
