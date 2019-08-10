@@ -62,10 +62,10 @@ describe("Given SlotMachine component", () => {
     });
   });
 
-  describe("Timeouts", ()=>{
-    it("Starts rolling after 5s and finishes after 10s", ()=>{
+  describe("Timeouts", () => {
+    it("Starts rolling after 5s and finishes after 10s", () => {
       jest.useFakeTimers();
-      const app = shallow(<SlotMachine/>);
+      const app = shallow(<SlotMachine />);
       expect(app.state().rolling).toBe(false);
       app.instance().startGame();
       jest.advanceTimersByTime(5001);
@@ -73,13 +73,13 @@ describe("Given SlotMachine component", () => {
       jest.advanceTimersByTime(5001);
       expect(app.state().rolling).toBe(false);
     });
-    it("Sets timeout in componentDidMount", ()=>{
+    it("Sets timeout in componentDidMount", () => {
       jest.useFakeTimers();
-      const app = shallow(<SlotMachine/>).instance();
+      const app = shallow(<SlotMachine />).instance();
       jest.spyOn(app, "startGame");
       app.componentDidMount();
       jest.advanceTimersByTime(5001);
       expect(app.startGame).toBeCalled();
-    })
-  })
+    });
+  });
 });

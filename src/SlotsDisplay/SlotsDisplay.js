@@ -1,11 +1,10 @@
 import React from "react";
 import Slot from "../Slot/Slot";
-import './SlotsDisplay.scss';
-import uuid from 'uuid/v4';
-import PropTypes from 'prop-types';
+import "./SlotsDisplay.scss";
+import uuid from "uuid/v4";
+import PropTypes from "prop-types";
 
-
-const SlotsDisplay = ({rolling, slots}) => {
+const SlotsDisplay = ({ rolling, slots }) => {
   return (
     <div className="slot-container">
       {slots.map(slot => (
@@ -21,4 +20,3 @@ SlotsDisplay.propTypes = {
 };
 
 export default SlotsDisplay;
-

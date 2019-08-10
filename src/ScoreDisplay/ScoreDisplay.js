@@ -1,16 +1,17 @@
-import React, {memo} from "react";
+import React, { memo } from "react";
 import "./ScoreDisplay.scss";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-const ScoreDisplay = ({score}) => {
+const ScoreDisplay = ({ score }) => {
   return (
     <div className="score-display">
-      {score !==0 ?
+      {score !== 0 && (
         <>
           <h1>Congratulations!</h1>
           <h2 className="score">Your award is: {score}</h2>
-        </> : null}
-      </div>
+        </>
+      ) }
+    </div>
   );
 };
 
