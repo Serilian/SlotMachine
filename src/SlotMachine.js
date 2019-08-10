@@ -2,19 +2,19 @@ import React, { Component } from "react";
 import "./SlotMachine.scss";
 import SlotsDisplay from "./SlotsDisplay/SlotsDisplay";
 import ScoreDisplay from "./ScoreDisplay/ScoreDisplay";
+import {
+  DEFAULT_GAME_END_TIME_MILIS,
+  AWARD_FOR_ALL_MATCHING,
+  AWARD_FOR_TWO_CONSECUTIVE,
+  AWARD_FOR_TWO_MATCHING,
+  DEFAULT_GAME_START_TIME_MILIS,
+  DEFAULT_SLOT_ROTATION_MILIS
+} from './gameConfig';
 
 class SlotMachine extends Component {
   static defaultProps = {
     symbols: ["🍓", "🍌", "🍊", "🐵"]
   };
-
-  DEFAULT_GAME_START_TIME_MILIS = 5000;
-  DEFAULT_GAME_END_TIME_MILIS = 10000;
-  DEFAULT_SLOT_ROTATION_MILIS = 50;
-
-  AWARD_FOR_ALL_MATCHING = 100;
-  AWARD_FOR_TWO_CONSECUTIVE = 20;
-  AWARD_FOR_TWO_MATCHING = 10;
 
   constructor(props) {
     super(props);
@@ -39,7 +39,7 @@ class SlotMachine extends Component {
   componentDidMount() {
     this.startTimeout = setTimeout(() => {
       this.startGame();
-    }, this.DEFAULT_GAME_START_TIME_MILIS);
+    }, DEFAULT_GAME_START_TIME_MILIS);
   }
 
   rollSymbols = () => {
@@ -62,11 +62,11 @@ class SlotMachine extends Component {
           award: 0
         });
       }
-    }, this.DEFAULT_SLOT_ROTATION_MILIS);
+    }, DEFAULT_SLOT_ROTATION_MILIS);
   };
 
   finishGameAutomaticallyAfterTimeout = () => {
-    this.finishTimeout = setTimeout(this.handleStop, this.DEFAULT_GAME_END_TIME_MILIS);
+    this.finishTimeout = setTimeout(this.handleStop, DEFAULT_GAME_END_TIME_MILIS);
   };
 
   startGame = () => {
@@ -85,28 +85,28 @@ class SlotMachine extends Component {
   calculateAwardIfAny = () => {
     const { slot1, slot2, slot3 } = this.state;
     if (slot1 === slot2 && slot2 === slot3) {
-      this.setState({ award: this.AWARD_FOR_ALL_MATCHING });
+      this.setState({ award: AWARD_FOR_ALL_MATCHING });
     } else if ((slot1 === slot2) || (slot2 === slot3)) {
-        this.setState({award: this.AWARD_FOR_TWO_CONSECUTIVE})
+        this.setState({award: AWARD_FOR_TWO_CONSECUTIVE})
     } else if(slot1 === slot3) {
-        this.setState({award: this.AWARD_FOR_TWO_MATCHING})
+        this.setState({award: AWARD_FOR_TWO_MATCHING})
     }
   };
 
   render() {
-    const { slot1, slot2, slot3, rolling } = this.state;
+    const { slot1, slot2, slot3, rolling, award } = this.state;
     const slots = [slot1, slot2, slot3];
 
     return (
       <div className="slot">
         <SlotsDisplay slots={slots} rolling={rolling} />
-        <button onClick={this.startGame} disabled={this.state.rolling}>
-          {this.state.rolling ? "Rolling..." : "START GAME!"}
+        <button className="btn-start" onClick={this.startGame} disabled={rolling}>
+          {rolling ? "Rolling..." : "START GAME!"}
         </button>
-        <button onClick={this.handleStop} disabled={!this.state.rolling}>
+        <button className="btn-stop" onClick={this.handleStop} disabled={!rolling}>
           STOP
         </button>
-        <ScoreDisplay score={this.state.award} />
+        <ScoreDisplay score={award} />
       </div>
     );
   }

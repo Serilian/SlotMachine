@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Slots display renders correctly 1`] = `
+"<div className=\\"slot-container\\">
+  <Memo(Slot) symbol=\\"🍌\\" rolling={false} />
+  <Memo(Slot) symbol=\\"🍊\\" rolling={false} />
+  <Memo(Slot) symbol=\\"🐵\\" rolling={false} />
+</div>"
+`;

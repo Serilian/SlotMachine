@@ -1,5 +1,6 @@
 import React, {memo} from "react";
 import "./ScoreDisplay.scss";
+import PropTypes from 'prop-types';
 
 const ScoreDisplay = ({score}) => {
   return (
@@ -11,6 +12,10 @@ const ScoreDisplay = ({score}) => {
         </> : null}
       </div>
   );
+};
+
+ScoreDisplay.propTypes = {
+  score: PropTypes.number.isRequired
 };
 
 export default memo(ScoreDisplay);
